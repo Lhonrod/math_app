@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Derivadas Parciales</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Calculadora de Derivadas Parciales</h1>
+    <p>Esta aplicación web está diseñada para estudiantes del curso de Matemática 3. Su propósito es ayudar a los estudiantes a comprender y calcular las derivadas parciales de funciones multivariables, una habilidad esencial en el estudio de ecuaciones diferenciales parciales y análisis matemático.</p>
+    <form method="post">
+        <label for="function">Ingrese la función f(x, y):</label>
+        <input type="text" id="function" name="function" required>
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if result %}
+        <h2>Resultados:</h2>
+        {% if result.error %}
+            <p class="error">{{ result.error }}</p>
+        {% else %}
+            <p><strong>f(x, y):</strong> {{ result.f }}</p>
+            <p><strong>∂f/∂x:</strong> {{ result.df_dx }}</p>
+            <p><strong>∂f/∂y:</strong> {{ result.df_dy }}</p>
+            <p><strong>∂²f/∂x²:</strong> {{ result.d2f_dx2 }}</p>
+            <p><strong>∂²f/∂y²:</strong> {{ result.d2f_dy2 }}</p>
+            <p><strong>∂²f/∂x∂y:</strong> {{ result.d2f_dxdy }}</p>
+            <p><strong>∂²f/∂y∂x:</strong> {{ result.d2f_dydx }}</p>
+        {% endif %}
+    {% endif %}
+
+    <footer>
+        <p>Derechos reservados &copy; 2024 Sthefany Darley Chuquipoma Medina</p>
+    </footer>
+</body>
+</html>
